@@ -1,0 +1,57 @@
+---
+layout: bootstrap
+---
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="{% if page.title == "Home" %}#{% else %}/index.html{%endif%}">{{ site.brand }}</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li {% if page.title == "Home" %}class="active"{% endif %}><a href="{% if page.title == "Home" %}#{% else %}/index.html{%endif%}">Home</a></li>
+              <li><a href="#about">Posts</a></li>
+              <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Projects
+              <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+            	<li><a href="#contact">JSMailSender</a></li>
+				<li><a href="#">PriorityQueue</a></li>
+              </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container -->
+      </div><!--/.navbar-inner -->
+    </div><!--/.navbar -->
+<div class="container">
+            <div class="row">
+            	<div class="span12">
+            	  <div class="page-header">
+					<h1>{{ site.title }}<br /><small>Thoughts in words and code.</small></h1>
+				  </div>
+					</div>
+					</div>
+					<div class="row">
+					<div class="span8">
+				{{ content }}
+				</div>
+				<div class="span4">
+				<div class="well">
+				<ul class="nav nav-list">
+				  <li class="nav-header">About This Site</li>
+	<li>
+	This site is a place for my code and for my blog about code and other technical topics. Hopefully one day it
+	will coalesce into a glorious whole. For now, it is kind of a mish-mash.
+	</li>
+				</div>
+				</div>
+            	</div>
+            <footer>
+                <p>&copy; {{ site.author }} 2012</p>
+            </footer>
+
+</div>

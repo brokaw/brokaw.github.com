@@ -1,0 +1,10 @@
+---
+layout: default
+---
+<div itemscope itemtype="http://schema.org/BlogPosting">
+<h2 itemprop="headline">{{ page.title }}</h2>
+<div itemprop="articleBody">
+{{ content }}
+</div>
+<div itemprop="datePublished"><p>{{ page.date | date_to_string }}</p></div>
+</div>

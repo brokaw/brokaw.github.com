@@ -1,0 +1,9 @@
+safe: true
+url: http:/brokaw.github.com/
+exclude: _site, README.md
+google-site-verification: shy4dZMrfu3-G-g-YnAwXWKxweWOTa1FecSMt7FEBRo
+google-analytics-id: UA-XXXXX-XX
+title: Steve Brokaw's Github
+brand: brokaw.github.com
+author: Steve Brokaw
+email: brokaw@me.com
