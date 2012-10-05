@@ -1,6 +1,6 @@
 ---
 layout: post
-title: An Tale of Two Priority Queues
+title: A Tale of Two Priority Queues
 description: I compare two object-oriented priority queues for Objective-C objects. One using using Core Foundation, another using a C array.
 published: true
 ---
