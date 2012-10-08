@@ -12,7 +12,7 @@ use. The problem wasn't Core Foundation itself, it was the `void *` pointers the
 
 I needed to get an array of objects from Core Foundation using the function
 
-{% highlight c %}
+{% highlight objc %}
 void CFBinaryHeapGetValues (
    CFBinaryHeapRef heap,
    const void **values
