@@ -12,7 +12,7 @@ use. The problem wasn't Core Foundation itself, it was the `void *` pointers the
 
 I needed to get an array of objects from Core Foundation using the function
 
-{% highlight C %}
+{% highlight c %}
 void CFBinaryHeapGetValues (
    CFBinaryHeapRef heap,
    const void **values
@@ -40,7 +40,7 @@ NSArray *objects = [[NSArray alloc] initWithObjects:values count:size];
 
 The commented line above resulted in this error:
 
-    Case of an indirect pointer to an Objective-C pointer to 'const void **' is disallowed with arc.
+    Cast of an indirect pointer to an Objective-C pointer to 'const void **' is disallowed with arc.
 
 My next attempt was to create a C array of CFTypeRef. That got through the
 CFBinaryHeapGetValues() call okay, but it didn't get through the call to NSArray.
