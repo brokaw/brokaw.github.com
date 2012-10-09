@@ -1,23 +1,26 @@
 ---
 layout: post
 title: Slowing Things Down with Grand Central Dispatch
-description: After updating my priority queue to use GCD, the timing test indicate it actually slowed down slightly.
+description: After updating my priority queue to use GCD, the timing tests indicate it actually slowed down slightly.
+published: false
 ---
 
 Grand Central Dispatch (GCD) is a way to easily add concurrency to your project. So I
 couldn't resist the urge to add concurrency to SBPriorityQueue. This is a situation where
-I really can't speed anything up, but I can return from some calls faster.
+I really can't speed anything up, but I can return from some calls faster, which might
+make it feel faster.
 
-For example, when you add to the queue, you're not expecting a return value back, so you
-can just throw your object on the queue and continue on other work before the queue is
-done prioritizing your new object. The heapify-ing can happen on a background thread, but
-it still has to happen, and it has to take about the same amount of time.
+For example, when you add an object to the queue, you're not expecting a return value
+back, so you can just throw your object on the queue and continue on other work before the
+queue is done prioritizing your new object. The prioritization (i.e., heapify-ing) can
+happen on a background thread, but it still has to happen, and it has to take about the
+same amount of time.
 
 If you add a bunch of objects, then pop the minimum, you'll have to wait for all pending
 heapifying to finish before the queue can return the minimum. All the time you saved is
 potentially lost. Depending on your use case, you might not get any speed benefits. The
-timing tests I run are all in a tight loop of adding and removing objects, so I actually
-didn't expect too much of an improvement. It turns out the overhead of GCD slowed things
+timing tests I run are all in a tight loop of adding and removing objects, so I didn't
+actually expect too much of an improvement. It turns out the overhead of GCD slowed things
 down a bit for my tests.
 
 Comparative times are below. The five test with the doubling input size fill the queue
