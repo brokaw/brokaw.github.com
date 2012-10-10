@@ -2,7 +2,7 @@
 layout: post
 title: Slowing Things Down with Grand Central Dispatch
 description: After updating my priority queue to use GCD, the timing tests indicate it actually slowed down slightly.
-published: false
+published: true
 ---
 
 Grand Central Dispatch (GCD) is a way to easily add concurrency to your project. So I
