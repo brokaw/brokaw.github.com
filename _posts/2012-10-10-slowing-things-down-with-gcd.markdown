@@ -2,6 +2,7 @@
 layout: post
 title: Slowing Things Down with Grand Central Dispatch
 description: After updating my priority queue to use GCD, the timing tests indicate it actually slowed down slightly.
+date: 2012-10-10 08:00:00
 published: true
 ---
 
