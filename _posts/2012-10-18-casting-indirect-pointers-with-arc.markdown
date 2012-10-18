@@ -87,5 +87,5 @@ state->itemsPtr = (__bridge __unsafe_unretained id *)(void *)&_heap[1];
 
 And with that, fast enumeration is implemented.
 
-[1]: {% post_url 2012-10-08-stuck-on-the-toll-free-bridge %}
+[1]: /2012/10/08/stuck-on-the-toll-free-bridge.html
 [SBPriorityQueue]: http://brokaw.github.com/SBDataStructures/Classes/SBPriorityQueue.html
