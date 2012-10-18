@@ -1,7 +1,7 @@
 ---
 title: Home
 layout: default
-description: The front page.
+description: A site for code and comments about code. Primarily, but not exclusively, based on Objective-C and Cocoa.
 ---
 
 {% assign recent_post = site.posts.first %}
