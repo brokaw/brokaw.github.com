@@ -3,13 +3,15 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Steve Brokaw -- Site Impresario -- @brokaw
 
 # THANKS
 
-    <name>
+    Flightpath Cafe, for the caffeinated writing space
 
 # TECHNOLOGY COLOPHON
 
     HTML5, CSS3
     jQuery, Modernizr
+    html5boilerplate, Bootstrap
+	jekyll, pygments
