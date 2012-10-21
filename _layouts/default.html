@@ -12,8 +12,18 @@ layout: boilerplate
           <a class="brand" href="{% if page.title == "Home" %}#{% else %}/index.html{%endif%}">{{ site.brand }}</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li {% if page.title == "Home" %}class="active"{% endif %}><a href="{% if page.title == "Home" %}#{% else %}/index.html{%endif%}">Home</a></li>
-              <li><a href="/archive.html">Posts</a></li>
+              <!--<li {% if page.title == "Home" %}class="active"{% endif %}><a href="{% if page.title == "Home" %}#{% else %}/index.html{%endif%}">Home</a></li>-->
+				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				Archive
+              <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+              {% for post in site.posts limit:5 offset:1 %}
+				<li><a href="{{post.url}}">{{post.title}}</a></li>
+				{% endfor %}
+                <li class="divider"></li>
+                <li><a href="/archive.html">Full Archive</a></li>
+
+			</ul></li>
               <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
               Projects
               <b class="caret"></b></a>
@@ -22,6 +32,25 @@ layout: boilerplate
 				<li><a href="https://github.com/brokaw/brokaw.github.com">Web Site</a></li>
               </ul>
               </li>
+              <!--
+            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Share
+              <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+				<li><a href="http://twitter.com/share?url={{site.url}}{{page.url}}">Tweet This Page</a></li>
+				<li><a href="http://www.facebook.com/share.php?u={{site.url}}{{page.url}}">Like This Page</a></li>
+              </ul>
+              </li>
+            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Follow
+              <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+              <li><a href="#">Subscribe</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Google+</a></li>
+              </li>
+            </ul>-->
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container -->
@@ -31,7 +60,7 @@ layout: boilerplate
             <div class="row">
             	<div class="span12">
             	  <div class="page-header">
-					<h1>{{ site.title }}<br /><small>Thoughts in words and code.</small></h1>
+					<h1>{{ site.title }}<br /><small>by Steven Brokaw</small></h1>
 				  </div>
 					</div>
 					</div>
@@ -44,9 +73,12 @@ layout: boilerplate
 				<ul class="nav nav-list">
 				  <li class="nav-header">About This Site</li>
 	<li>
-	This site is a place for my code and for my blog about code and other technical topics. Hopefully one day it
-	will coalesce into a glorious whole. For now, it is kind of a mish-mash.
+	This site is a place for code and discussions about code.
 	</li>
+	<li class="nav-header">Contact</li>
+	I post lots of things as I learn them. Consequently, I  would be surprised if I didn't
+	make a few mistakes. If you see one, please file a <a href="https://github.com/brokaw/brokaw.github.com/issues/new">
+	bug report</a>.
 			</ul>
 				</div>
 				</div>
