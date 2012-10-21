@@ -3,10 +3,11 @@ layout: post
 title: Not All That is Asynchronous is Fast
 description: I discover and fix the issue causing the slowdown described in the last post.
 date: 2012-10-10 11:00:00
+revised: 2012-10-12 08:00:00
 ---
 
-In my [previous post][1] I noticed a slowdown after adding GCD. As soon as I pushed that
-post, I looked at my code and saw the source of the slowdown.
+In my [previous post][1] I noticed a slowdown after adding GCD to my priority queue. As
+soon as I pushed that post, I looked at my code and saw the source of the slowdown.
 
 The heap array and related variables (like the array size and content size) are modified
 only in a GCD serial queue. That way I can be sure that things happen in the order in
@@ -45,13 +46,13 @@ dispatch_async(heap_q, ^{
 });
 {% endhighlight %}
 
-By using self.count on the main thread, I lose all the benefits of GCD because caller has
-to wait for the queue to empty for that call to return. That method can't proceed past the
-first line until the dispatch queue finishes all pending requests. That makes the
-following dispatch_async calls far less effective. Once those are called, the queue is
-guaranteed to be empty.
+By using self.count on the main thread, I call that synchronous accesser and lose all the
+benefits of GCD because caller has to wait for the queue to empty for that call to return.
+That method can't proceed past the first line until the dispatch queue finishes all
+pending requests. That makes the following dispatch_async calls far less effective. Once
+those are called, the queue is guaranteed to be empty.
 
-The fix is as simple as moving the entire method into the queue.
+The fix is as simple as moving the entire method body into the queue.
 
 {% highlight objc %}
 - (void)addObject:(id<NSObject>)object {
@@ -71,7 +72,7 @@ The fix is as simple as moving the entire method into the queue.
 }
 {% endhighlight %}
 
-Now there's no need for addObject to wait around under any circumstances. I had made the
+Now there's no need for addObject: to wait around under any circumstances. I had made the
 same mistake for removeFirstObject, so I fixed that too. The result? Better times:
 
     =====================
