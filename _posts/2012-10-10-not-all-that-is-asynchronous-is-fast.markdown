@@ -3,7 +3,7 @@ layout: post
 title: Not All That is Asynchronous is Fast
 description: I discover and fix the issue causing the slowdown described in the last post.
 date: 2012-10-10 11:00:00
-revised: 2012-10-12 08:00:00
+#revised: 2012-10-12 08:00:00
 ---
 
 In my [previous post][1] I noticed a slowdown after adding GCD to my priority queue. As
