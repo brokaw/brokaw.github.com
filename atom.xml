@@ -1,12 +1,9 @@
----
-layout: nil
----
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  
  <title>Steven Brokaw</title>
- <link href="http://brokaw.github.com/atom.xml" rel="self"/>
- <link href="http://brookaw.github.com/"/>
+ <link href="http://brokaw.github.io/atom.xml" rel="self"/>
+ <link href="http://brokaw.github.io/"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
  <id>http://brokaw.github.com/</id>
  <author>
@@ -16,7 +13,7 @@ layout: nil
  {% for post in site.posts %}
  <entry>
    <title>{{ post.title }}</title>
-   <link href="http://brokaw.github.com{{ post.url }}"/>
+   <link href="http://brokaw.github.io{{ post.url }}"/>
    <updated>{{ post.date | date_to_xmlschema }}</updated>
    <id>http://brokaw.github.com{{ post.id }}</id>
    <content type="html">{{ post.content | xml_escape }}</content>
